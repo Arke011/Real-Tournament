@@ -1,27 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class health : MonoBehaviour
 {
+    public int hp;
+    public int maxHp = 100;
 
     public UnityEvent onDie;
     public UnityEvent onDamage;
 
-    public int Hp;
-    public int MaxHealth;
-
-    void Update()
+    void Start()
     {
-        if (Hp == 0) Hp = MaxHealth;
+        if (hp == 0) hp = maxHp;
     }
 
     public void Damage(int damage)
     {
-        Hp -= damage;
+        hp -= damage;
         onDamage.Invoke();
-        if (Hp <= 0)
+        if (hp <= 0)
         {
             Die();
             onDie.Invoke();

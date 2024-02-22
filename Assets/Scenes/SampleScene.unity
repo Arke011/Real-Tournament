@@ -414,6 +414,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1156774763 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7018592168478536082, guid: 19194da9689fdf04fa1a1f841593ad21,
+    type: 3}
+  m_PrefabInstance: {fileID: 6564576746673169332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1453447875 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1593727746557118, guid: 11aaea5348574644a9eb4f4504fcce3f,
@@ -800,14 +806,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1da32349e3ad945b3ec11e85dd31e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 20
-  MaxHealth: 20
+  hp: 0
+  maxHp: 100
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &4114792432756003827 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3057722322250220410, guid: 19194da9689fdf04fa1a1f841593ad21,
     type: 3}
   m_PrefabInstance: {fileID: 6564576746673169332}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4114792432756003828 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
+    type: 3}
+  m_PrefabInstance: {fileID: 6564576746673169332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156774763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339f290f9ee6eee40817937124ff7130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4114792432756003829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156774763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157542610d1244a4c97627958bca4b94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  isBursting: 0
 --- !u!1001 &6564576746673169332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -931,6 +969,41 @@ PrefabInstance:
       propertyPath: fireInterval
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
+        type: 3}
+      propertyPath: onRightClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
+        type: 3}
+      propertyPath: onRightClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
+        type: 3}
+      propertyPath: onRightClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4114792432756003828}
+    - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
+        type: 3}
+      propertyPath: onRightClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
+        type: 3}
+      propertyPath: onRightClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
+        type: 3}
+      propertyPath: onRightClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Weapon, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
+        type: 3}
+      propertyPath: onRightClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5727705173263869188, guid: 19194da9689fdf04fa1a1f841593ad21,
         type: 3}
       propertyPath: m_Layer
@@ -954,7 +1027,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7018592168478536082, guid: 19194da9689fdf04fa1a1f841593ad21,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4114792432756003829}
   m_SourcePrefab: {fileID: 100100000, guid: 19194da9689fdf04fa1a1f841593ad21, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
