@@ -894,17 +894,22 @@ PrefabInstance:
     - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
         type: 3}
       propertyPath: maxAmmo
-      value: 1000
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
         type: 3}
       propertyPath: AmmoCount
-      value: 1000
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
+        type: 3}
+      propertyPath: isShotgun
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
         type: 3}
       propertyPath: isAutomatic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
         type: 3}
