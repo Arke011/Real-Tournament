@@ -893,8 +893,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
         type: 3}
+      propertyPath: ammo
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
+        type: 3}
       propertyPath: maxAmmo
-      value: 40
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
+        type: 3}
+      propertyPath: clipAmmo
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
+        type: 3}
+      propertyPath: clipSize
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
         type: 3}
@@ -904,12 +919,12 @@ PrefabInstance:
     - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
         type: 3}
       propertyPath: isShotgun
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
         type: 3}
       propertyPath: isAutomatic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4493721351243308410, guid: 19194da9689fdf04fa1a1f841593ad21,
         type: 3}

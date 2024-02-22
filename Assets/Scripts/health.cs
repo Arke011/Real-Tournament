@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class health : MonoBehaviour
 {
+
+    public UnityEvent onDie;
+    public UnityEvent onDamage;
+
     public int Hp;
     public int MaxHealth;
 
@@ -15,9 +20,11 @@ public class health : MonoBehaviour
     public void Damage(int damage)
     {
         Hp -= damage;
+        onDamage.Invoke();
         if (Hp <= 0)
         {
             Die();
+            onDie.Invoke();
         }
     }
 
