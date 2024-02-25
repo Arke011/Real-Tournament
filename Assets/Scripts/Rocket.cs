@@ -21,14 +21,14 @@ public class Rocket : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        var health = other.gameObject.GetComponent<health>();
-        if (health != null)
+        var Health = other.gameObject.GetComponent<Health>();
+        if (Health != null)
         {
-            health.Damage(10);
+            Health.Damage(10);
         }
         Destroy(gameObject);
         //transform.forward = other.contacts[0].normal;
-        Instantiate(explosionPrefab, transform.position, transform.rotation);
+        if(explosionPrefab != null)Instantiate(explosionPrefab, transform.position, transform.rotation);
     }
 
 

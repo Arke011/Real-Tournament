@@ -1,13 +1,18 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class health : MonoBehaviour
+public class Health : MonoBehaviour
 {
     public int hp;
     public int maxHp = 100;
 
+    public bool shouldDestroy;
+
     public UnityEvent onDie;
     public UnityEvent onDamage;
+
+    public GameObject deathEffect;
+    public GameObject damageEffect;
 
     void Start()
     {
@@ -20,13 +25,24 @@ public class health : MonoBehaviour
         onDamage.Invoke();
         if (hp <= 0)
         {
+            shouldDestroy = true;
             Die();
-            onDie.Invoke();
+            
         }
+        if (hp < 0)hp = 0;
+        if (damageEffect != null)Instantiate(damageEffect, transform.position, Quaternion.identity);    
+        onDie.Invoke();
     }
 
     public void Die()
     {
-        Destroy(gameObject);
+
+        if (shouldDestroy)Destroy(gameObject);
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        onDie.Invoke();
+
+
+
+
     }
 }
