@@ -1278,34 +1278,10 @@ MonoBehaviour:
   shouldDestroy: 0
   onDie:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2007681324}
-        m_TargetAssemblyTypeName: EnemyTP, Assembly-CSharp
-        m_MethodName: TeleportEnemy
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onDamage:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2007681324}
-        m_TargetAssemblyTypeName: EnemyTP, Assembly-CSharp
-        m_MethodName: TeleportEnemy
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   deathEffect: {fileID: 8406258541847230502, guid: aff8dfedeaedbf94c898be1691471866,
     type: 3}
   damageEffect: {fileID: 6381412696430449814, guid: e3a85ff4aff0f9a4e9ecc91036ee003a,
@@ -1322,7 +1298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cef2a1e3027ba4e845ab2bb92ad629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: {fileID: 0}
+  HP: {fileID: 2007681323}
 --- !u!1 &2035268292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,7 +1313,7 @@ GameObject:
   - component: {fileID: 2035268293}
   - component: {fileID: 2035268297}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HudCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

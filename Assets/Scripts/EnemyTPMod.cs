@@ -14,7 +14,7 @@ public class EnemyTPMod : MonoBehaviour
 
     void Start()
     {
-        
+        HP.onDamage.AddListener(TeleportEnemy);
         HP = GetComponent<Health>();
 
         if (HP == null)
