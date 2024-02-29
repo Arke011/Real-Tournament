@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     public bool isReloading;
     public bool isAutomatic;
     public float fireInterval = 0.1f;
-    float fireCooldown;
+    public float fireCooldown;
     public float reloadTime = 2;
     public float bulletsPerShot = 1;
     public float spreadAngle = 5;
@@ -21,30 +21,7 @@ public class Weapon : MonoBehaviour
     public UnityEvent onShoot;
     public UnityEvent onReload;
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            onRightClick.Invoke();
-        }
-
-        // manual shooting
-        if (!isAutomatic && Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Shoot();
-        }
-        // automatic shooting
-        if (isAutomatic && Input.GetKey(KeyCode.Mouse0))
-        {
-            Shoot();
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Reload();
-        }
-        fireCooldown -= Time.deltaTime;
-    }
+    
 
     public void Shoot()
     {
@@ -57,6 +34,7 @@ public class Weapon : MonoBehaviour
         if (fireCooldown > 0) return;
 
         onShoot.Invoke();
+        Debug.Log("Shooting!!!!!!");
         clipAmmo--;
         fireCooldown = fireInterval;
         for (int i = 0; i < bulletsPerShot; i++)
@@ -68,7 +46,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    async void Reload()
+    public async void Reload()
     {
         if (clipAmmo == clipSize) return;
         if (isReloading) return;

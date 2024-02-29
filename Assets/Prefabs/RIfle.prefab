@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4514162748799311870}
   - component: {fileID: 4179517657072596040}
   - component: {fileID: 5784651947806132117}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 873079807454327912}
   - component: {fileID: 5124211745299928574}
   - component: {fileID: 209587676114856992}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ironSight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 2817824771246343212}
   - component: {fileID: 2994708963058120783}
   - component: {fileID: 2039847029530396561}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hold here (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 7775546755669568226}
   - component: {fileID: 8787268472273061888}
   - component: {fileID: 8234318702566338219}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: shoot from here
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 3807660657772228042}
   - component: {fileID: 6643253068573992598}
   - component: {fileID: 7027474163797748547}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Stock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 9202249183466205089}
   - component: {fileID: 6618326292198849928}
   - component: {fileID: 6838727407785671299}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gun-Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,8 +508,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3057722322250220410}
   - component: {fileID: 4493721351243308410}
-  m_Layer: 0
-  m_Name: Gun 1
+  - component: {fileID: 1440240848255196742}
+  m_Layer: 3
+  m_Name: RIfle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -551,6 +552,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7280656231709664679, guid: b0e5d202b860cd742a02f5ca6fbd5a3b,
     type: 3}
+  ammo: 0
+  maxAmmo: 10
+  clipAmmo: 0
+  clipSize: 10
+  isReloading: 0
+  isAutomatic: 0
+  fireInterval: 0.1
+  fireCooldown: 0
+  reloadTime: 2
+  bulletsPerShot: 1
+  spreadAngle: 0
+  onRightClick:
+    m_PersistentCalls:
+      m_Calls: []
+  onShoot:
+    m_PersistentCalls:
+      m_Calls: []
+  onReload:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!54 &1440240848255196742
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7018592168478536082}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7887901942747768404
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +610,7 @@ GameObject:
   - component: {fileID: 109362227729386199}
   - component: {fileID: 697577870673667719}
   - component: {fileID: 418505667316176819}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hold here (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
