@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public GameObject grabTXT;
     public Transform hand;
     public UnityEvent<Weapon> onWeaponChange = new UnityEvent<Weapon>();
+    
 
 
     void OnCollisionEnter(Collision other)

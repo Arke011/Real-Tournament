@@ -50,6 +50,7 @@ public class HUD : MonoBehaviour
         if (weapon != null)
         {
             weapon.onShoot.AddListener(UpdateUI);
+            weapon.onReload.AddListener(UpdateUI);
             
         }
 
