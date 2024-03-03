@@ -1,39 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
     public Weapon weapon;
-    public Health HP;
+    public Health health;
     public LayerMask weaponLayer;
-    public GameObject grabTXT;
+    public GameObject grabText;
     public Transform hand;
-    public UnityEvent<Weapon> onWeaponChange = new UnityEvent<Weapon>();
+    public HUD hud;
     
-
-
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            HP.Damage(20);
-        }
-
-    }
+    public AudioClip dropSound;
+    public AudioClip pickupSound;
+    public AudioClip damageSound;
+   
+    public AudioClip reloadSound;
 
     void Update()
     {
         var cam = Camera.main.transform;
+
         var collided = Physics.Raycast(cam.position, cam.forward, out var hit, 2f, weaponLayer);
-        grabTXT.SetActive(collided);
+
+        grabText.SetActive(collided);
+
 
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (weapon == null && collided)
             {
-                
                 Grab(hit.collider.gameObject);
             }
             else
@@ -63,11 +57,11 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             weapon.Reload();
+            AudioSystem.Play(reloadSound);
         }
-        weapon.fireCooldown -= Time.deltaTime;
     }
 
-    public void Grab(GameObject gun)
+    void Grab(GameObject gun)
     {
         if (weapon != null) Drop();
 
@@ -77,25 +71,38 @@ public class Player : MonoBehaviour
         weapon.transform.position = hand.position;
         weapon.transform.rotation = hand.rotation;
         weapon.transform.parent = hand;
-        onWeaponChange.Invoke(weapon);
 
+        hud.weapon = weapon;
+        hud.UpdateUI();
+        weapon.onShoot.AddListener(hud.UpdateUI);
+        weapon.onReload.AddListener(hud.UpdateUI);
+        AudioSystem.Play(pickupSound);
     }
 
-    public void Drop()
+    void Drop()
     {
         if (weapon == null) return;
 
-        Debug.Log("Dropping weapon");
-
         weapon.GetComponent<Rigidbody>().isKinematic = false;
         weapon.GetComponent<BoxCollider>().enabled = true;
+
         weapon.transform.parent = null;
+
+
+        hud.weapon = null;
+        weapon.onShoot.RemoveListener(hud.UpdateUI);
+        weapon.onReload.RemoveListener(hud.UpdateUI);
         weapon = null;
-        onWeaponChange.Invoke(null);
-
-        
-
-
+        hud.UpdateUI();
+        AudioSystem.Play(dropSound);
     }
 
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            AudioSystem.Play(damageSound);
+            health.Damage(10);
+        }
+    }
 }

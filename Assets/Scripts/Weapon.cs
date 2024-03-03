@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     public bool isReloading;
     public bool isAutomatic;
     public float fireInterval = 0.1f;
-    public float fireCooldown;
+    float fireCooldown;
     public float reloadTime = 2;
     public float bulletsPerShot = 1;
     public float spreadAngle = 5;
@@ -21,7 +21,10 @@ public class Weapon : MonoBehaviour
     public UnityEvent onShoot;
     public UnityEvent onReload;
 
-    
+    void Update()
+    {
+        fireCooldown -= Time.deltaTime;
+    }
 
     public void Shoot()
     {
@@ -34,7 +37,6 @@ public class Weapon : MonoBehaviour
         if (fireCooldown > 0) return;
 
         onShoot.Invoke();
-        Debug.Log("Shooting!!!!!!");
         clipAmmo--;
         fireCooldown = fireInterval;
         for (int i = 0; i < bulletsPerShot; i++)

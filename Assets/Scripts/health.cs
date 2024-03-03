@@ -13,6 +13,8 @@ public class Health : MonoBehaviour
 
     public GameObject deathEffect;
     public GameObject damageEffect;
+    
+
 
     void Start()
     {
@@ -21,6 +23,7 @@ public class Health : MonoBehaviour
 
     public void Damage(int damage)
     {
+        
         hp -= damage;
         onDamage.Invoke();
         if (hp <= 0)

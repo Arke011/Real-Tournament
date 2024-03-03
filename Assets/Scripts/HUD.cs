@@ -1,62 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class HUD : MonoBehaviour
 {
-    [SerializeField]TMP_Text ammoText;
-    [SerializeField]TMP_Text healthText;
+    [SerializeField] TMP_Text ammoText;
+    [SerializeField] TMP_Text healthText;
 
-    
-    public Player player;
-    Weapon weapon;
-    public Health HP;
-
+    public Weapon weapon;
+    public Health health;
 
     void Start()
     {
-        UpdateUI(); 
-
-        
-                          
-        HP.onDamage.AddListener(UpdateUI);
-        player.onWeaponChange.AddListener(UpdateCurrentWeapon);
+        UpdateUI();
+        health.onDamage.AddListener(UpdateUI);
     }
 
     public void UpdateUI()
     {
+        healthText.text = health.hp.ToString();
+
         if (weapon == null)
         {
-            ammoText.text = "No Weapon";
+            ammoText.text = "";
         }
         else
         {
-            ammoText.text = weapon.clipAmmo + "/" + weapon.ammo;
+            ammoText.text = weapon.clipAmmo + " / " + weapon.ammo;
         }
-
-        healthText.text = HP.hp.ToString();
     }
-
-    public void UpdateCurrentWeapon(Weapon newWeapon)
-    {
-        weapon = newWeapon;
-        UpdateUI();
-    }
-
-    void Update()
-    {
-        
-        if (weapon != null)
-        {
-            weapon.onShoot.AddListener(UpdateUI);
-            weapon.onReload.AddListener(UpdateUI);
-            
-        }
-
-        
-    }
-
-
-
 }
