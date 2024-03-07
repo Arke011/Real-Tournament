@@ -15,7 +15,7 @@ Spacebar - jump;
 
 You have 100 total health, each zombie hit will take away 10hp from you. Also, the guns do not have unlimited ammo, so be careful!
 
-Play the game here - 
+Play the game here - https://play.unity.com/mg/other/unity-builds-1676
 
 
 ![image](https://github.com/Arke011/Real-Tournament/assets/146362737/53a70612-06d2-40f5-81e0-eb5922d964c8)
